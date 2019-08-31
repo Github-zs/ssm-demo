@@ -9,7 +9,7 @@
          version="3.1">
 
   <display-name>Archetype Created Web Application</display-name>
-  <description>ssm_demo_0.0.1</description>
+  <description>ssm-demo-0.0.1</description>
 
   <!--编码过滤器-->
   <filter>
