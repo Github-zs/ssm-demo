@@ -1,2 +1,5 @@
-com/zs/demo/test/controller/TestController.class
-com/zs/demo/test/dao/TestDao.class
+com\zs\demo\test\controller\LoginController.class
+com\zs\demo\security\SecurityTest.class
+com\zs\demo\security\SecurityRealm.class
+com\zs\demo\test\controller\TestController.class
+com\zs\demo\test\dao\TestDao.class

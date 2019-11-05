@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd"
+       default-lazy-init="true">
+    <description>Shiro Configuration</description>
+
+    <bean id="advisorAutoProxyCreator" class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+        <property name="proxyTargetClass" value="true"></property>
+    </bean>
+    
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="SecurityRealm"></property>
+    </bean>
+
+    <bean id="SecurityRealm" class="com.zs.demo.security.SecurityRealm"></bean>
+
+    <!--配置ShiroFilter-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+
+        <property name="loginUrl" value="/login.html" />
+        <property name="unauthorizedUrl" value="/index.html" />
+        <property name="securityManager" ref="securityManager"/>
+        <!--URL的拦截-->
+        <property name="filterChainDefinitions" >
+            <value>
+                <!--/test = authcBasic-->
+                /test = authcBasic
+                /login = authcBasic
+                /login.html = anon
+            </value>
+        </property>
+
+    </bean>
+
+</beans>

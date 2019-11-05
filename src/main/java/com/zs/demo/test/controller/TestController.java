@@ -3,6 +3,9 @@ package com.zs.demo.test.controller;/**
  * Copyright (c) 2018-2020 All Rights Reserved.
  */
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +24,8 @@ public class TestController {
     @RequestMapping(value = "/test", method = RequestMethod.GET)
     @ResponseBody
     public String test() {
-        return "hello wordld!";
+        
+        return "this is a test controller!";
     }
 
 }
